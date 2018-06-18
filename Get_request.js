@@ -27,20 +27,20 @@ https.get('https://api.iextrading.com/1.0/stock/aapl/chart/5y?filter=date,close,
     fs.writeFile("thing.json", JSON.stringify(array_data));
 
 
-    // var vis = d3.select("#graph")
-    // .append("svg")
-    // .attr("width", 500).attr("height", 500);
+    var vis = d3.select("#graph")
+    .append("svg")
+    .attr("width", 500).attr("height", 500);
 
     
 
-    // vis.selectAll("circle.nodes")
-    // .data(nodes)
-    // .enter()
-    // .append("svg:circle")
-    // .attr("cx", function(d) { return d.x; })
-    // .attr("cy", function(d) { return d.y; })
-    // .attr("r", "3px")
-    // .attr("fill", "black")
+    vis.selectAll("circle.nodes")
+    .data(nodes)
+    .enter()
+    .append("svg:circle")
+    .attr("cx", function(d) { return d.x; })
+    .attr("cy", function(d) { return d.y; })
+    .attr("r", "3px")
+    .attr("fill", "black")
 
     console.log(highest_price);
     console.log(lowest_price);
