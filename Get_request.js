@@ -34,11 +34,11 @@ https.get('https://api.iextrading.com/1.0/stock/aapl/chart/5y?filter=date,close,
     
 
     vis.selectAll("circle.nodes")
-    .data(nodes)
+    .data(array_data)
     .enter()
     .append("svg:circle")
-    .attr("cx", function(d) { return d.x; })
-    .attr("cy", function(d) { return d.y; })
+    .attr("cx", function(d) { return d.open; })
+    .attr("cy", function(d) { return d.close; })
     .attr("r", "3px")
     .attr("fill", "black")
 
