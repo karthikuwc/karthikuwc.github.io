@@ -1,5 +1,6 @@
 const https = require('https');
 
+
 https.get('https://api.iextrading.com/1.0/stock/aapl/chart/5y?filter=date,close,open&chartLast=400', (resp) => {
   let data = '';
  
