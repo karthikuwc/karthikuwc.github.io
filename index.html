@@ -1,42 +1,124 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
 <head>
-<title>Karthik Suresh</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.1/d3.min.js"></script>
+    <style type="text/css">
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: black;
+            shape-rendering: crispEdges;
+        }
+
+        .axis text {
+            font-family: sans-serif;
+            font-size: 11px;
+        }
+    </style>
 </head>
-<body>
+<h1> Stock Checker </h1>
 
-<h2 style="font-family:avenir; text-align:left;" title = "Click on the images">
-Karthik Suresh
-</h2>
+<div id="graph">
+        <script>
 
-<p style="font-family:avenir;" title = "Click on the images">
-Aspiring Engineer. Student at Cambridge.
-<a href="http://cucc.net/"><img src="https://raw.githubusercontent.com/karthikuwc/karthikuwc.github.io/master/CUCC.png" alt="" width="30" height="20">
-</a>
-</p>
+                //Function to trigger get request in reponse to user input
+                function sendAJAX() {
+                    var ticker = document.getElementById("frm1");
+                    var text = ticker.elements[0].value;
+                    xhr.open('GET', 'https://api.iextrading.com/1.0/stock/'+text+'/chart/5y?filter=date,close,open&chartLast=400', true);
+                    xhr.send();
+                }
+                
+                //Function to create array of links between each node in dataset of nodes
+                function createlinks(nodes) {
+                    var links = [];
 
-<p style="font-family:avenir" title = "Click on the images">See some of the work I've done 
-<a href="https://github.com/karthikuwc/firstprojects">here.</a>
-<p>
+                    for (var i = 0; i < nodes.length - 1; i++) {
+                        links.push({source: nodes[i], target: nodes[i+1]});
+                    }
 
-<p style="font-family:avenir" title = "Click on the images"> Looking for a place to be an enthusiatic 2018 Summer Software Intern.
-</p>
+                    return links;
+                }
 
-<br>
+                function processRequest() {
 
-<p style="text-align:left; font-family:american typewriter;font-size:75%;"> 
-karthik.uwc@gmail.com 
-</p>
+                    if (xhr.readyState == 4 && xhr.status == 200) { //Only continue execution of function if full, error free response recieved
 
-<p style="text-align:left; color: white;">
-<a href="https://www.linkedin.com/in/karthik-suresh-43707573/">
-<img src="https://raw.githubusercontent.com/karthikuwc/karthikuwc.github.io/master/linkedin.png" alt="" width="30" height="30">
-</a>
-<a href="https://www.facebook.com/karthik.suresh.1">
-<img src="https://raw.githubusercontent.com/karthikuwc/karthikuwc.github.io/master/fb_icon_325x325.png" alt="" width="30" height="30">
-</a>
-</p>
-<hr>
+                        d3.selectAll("svg > *").remove(); //Clear Chart before loading new data
 
-</body>
-</html>
+                        var nodes = JSON.parse(xhr.responseText); //Parse response text to form JSON array
+                        var highest_price = 0;
+                        var lowest_price  = 0;
+                        
+                        //Loop to set x value in each element of data array and to identify price range in set
+                        for (var i = 0; i < nodes.length; i++) {
+                            nodes[i].open = i; //Replace value of one attribute of response
+                        }
+
+                        var links = createlinks(nodes); //Execute function to create links once data set has been ammended
+
+                        var xScale = d3.scale.linear() // Scale for x values
+                        .domain([0, d3.max(nodes, function(d) { return d.open; })])
+                        .range([padding + 10, w]);
+
+                        var yScale = d3.scale.linear() // Scale for y values
+                        .domain([(d3.min(nodes, function(d) { return d.close; }))*0.95, (d3.max(nodes, function(d) { return d.close; }))*1.05])
+                        .range([h, 0]);
+
+                        var yAxis = d3.svg.axis()
+                            .scale(yScale)
+                            .orient("left")
+                            .ticks(5);
+
+                        vis.append("g")
+                            .attr("class", "axis")
+                            .attr("transform", "translate(" + padding + ",0)")
+                            .call(yAxis);
+                        
+                        //Plotting nodes on graph
+                        vis.selectAll("circle.nodes")
+                        .data(nodes)
+                        .enter()
+                        .append("svg:circle")
+                        .attr("cx", function(d) { return xScale(d.open); })
+                        .attr("cy", function(d) { return yScale(d.close); })
+                        .attr("r", "1px")
+                        .attr("fill", "black");
+                        
+                        //Plotting links on graph
+                        vis.selectAll(".line")
+                        .data(links)
+                        .enter()
+                        .append("line")
+                        .attr("x1", function(d) { return xScale(d.source.open) })
+                        .attr("y1", function(d) { return yScale(d.source.close) })
+                        .attr("x2", function(d) { return xScale(d.target.open) })
+                        .attr("y2", function(d) { return yScale(d.target.close) })
+                        .style("stroke", "rgb(6,120,155)");
+                    }
+
+                    if (xhr.status == 404) {d3.selectAll("svg > *").remove();} //If request is bad just clear canvas
+                }
+
+                var xhr = new XMLHttpRequest(); //Object to create http request
+                
+                xhr.addEventListener("readystatechange", processRequest, true); //Event listener to detect change in state of request
+
+                xhr.onreadystatechange = processRequest; //Trigger request processing function upon change of state
+
+                var w  = 400; //Width of canvas
+                var h = 400; //Height of canvas
+                var padding = 40; //Amount of axis padding
+
+                var vis = d3.select("#graph") //Display SVG canvas on page when page loads.
+                        .append("svg") 
+                        .attr("width", w).attr("height", h);
+                   
+                </script>
+</div>
+<form id="frm1" action="/action_page.php">
+    Ticker: <input type="text" name="fname"><br><br>
+    
+    <input type="button" onclick="sendAJAX()" value="Submit">
+</form>
