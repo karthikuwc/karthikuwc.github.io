@@ -1,6 +1,8 @@
 # karthikuwc.github.io
 My Website
 
-```bash
-npm install npm
+```javascript
+function bob() {
+  console.log('bob');
+}
 ```
