@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>Team_12_DublinDatathonFinalNotebook (1)</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Team_12_DublinDatathonFinalNotebook (2)</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11772,7 +11772,13 @@ div#notebook {
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
-<script>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><script>
   function code_toggle() {
     if (code_shown){
       $('div.input').hide('500');
@@ -11782,20 +11788,22 @@ div#notebook {
       $('#toggleButton').val('Hide Code')
     }
     code_shown = !code_shown
-  }
- 
-  $( document ).ready(function(){
+  }</p>
+<p>$( document ).ready(function(){
     code_shown=false;
     $('div.input').hide()
   });
-</script>
+&lt;/script&gt;</p>
 <form action="javascript:code_toggle()"><input type="submit" id="toggleButton" value="Show Code"></form>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Citadel-Datathon-Dublin-Team-12">Citadel Datathon Dublin Team 12<a class="anchor-link" href="#Citadel-Datathon-Dublin-Team-12">&#182;</a></h1><h2 id="The-role-of-inspections-in-health-and-saftey-of-food-establishments-in-New-York">The role of inspections in health and saftey of food establishments in New York<a class="anchor-link" href="#The-role-of-inspections-in-health-and-saftey-of-food-establishments-in-New-York">&#182;</a></h2>
+<h1 id="Citadel-Datathon-Dublin-Team-12">Citadel Datathon Dublin Team 12<a class="anchor-link" href="#Citadel-Datathon-Dublin-Team-12">&#182;</a></h1><h2 id="The-role-of-inspections-in-health-and-safety-of-food-establishments-in-New-York">The role of inspections in health and safety of food establishments in New York<a class="anchor-link" href="#The-role-of-inspections-in-health-and-safety-of-food-establishments-in-New-York">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -11827,7 +11835,7 @@ div#notebook {
 <p><strong>How does locality and inspection history influence the quality of food establishments in New York state and how does this relate to the quality of New York resident's lives?</strong></p>
 <p>We investigate the locality and inspection history data in conjuntion with socio-economic and health indicators acting as measures of quality of life.</p>
 <h3 id="The-Findings">The Findings<a class="anchor-link" href="#The-Findings">&#182;</a></h3><p>Our exploratory research suggests that the number of average food violations per inspection of a food establishment may have increased over time, across the state. We have found that an increase in number of inspections reduces the average critical violation count, but that these inspections are typically more frequent in areas with higher household earnings. This may suggest that efforts to increase inspections are effective and should be replicated in counties with lower household earnings to achieve parity of food establishment quality across the earnings scale.</p>
-<h3 id="The-Model">The Model<a class="anchor-link" href="#The-Model">&#182;</a></h3><p>We create a model that predicts whether an establishment will incur a critical violation given the average previous critical violations per inspection and the time passes since the last inspection. It achieves reasonable performance with an a 0.68 AUC ROC. We are able to insightfully correate both features with the value we try to predict.</p>
+<h3 id="The-Model">The Model<a class="anchor-link" href="#The-Model">&#182;</a></h3><p>We create a model that predicts whether an establishment will incur a critical violation given the average previous critical violations per inspection and the time that has passed since the last inspection. It achieves reasonable performance with an a 0.68 AUC ROC. We are able to insightfully correlate both features with the value we try to predict.</p>
 
 </div>
 </div>
@@ -11837,14 +11845,14 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2-Data-Exploration">2 Data Exploration<a class="anchor-link" href="#2-Data-Exploration">&#182;</a></h2><h3 id="2.1-Data-transformation:">2.1 Data transformation:<a class="anchor-link" href="#2.1-Data-transformation:">&#182;</a></h3><h3 id="Criticality-of-a-violation">Criticality of a violation<a class="anchor-link" href="#Criticality-of-a-violation">&#182;</a></h3><p>We decided to focus on violations that were deemed 'critical' (see grading system <a href="https://www.ehagroup.com/food-safety/new-york-abc-restaurant-grading/">here</a>), as they related to food temperature, sources, protection, facility design and personal hygiene of staff. These were factors we decided were more likely to impact the health of New York State citizens.</p>
-<h3 id="The-concept-of-an-inspection">The concept of an inspection<a class="anchor-link" href="#The-concept-of-an-inspection">&#182;</a></h3><p>Each row in the primary dataset was a single type of violation, meaning for a single inspection, multiple rows could occur for different violation types. Since we decided not to focus on the violation types, we transformed the data to get a single row per inspection, which summed the total number of violations over all types.</p>
+<h2 id="2-Data-Exploration">2 Data Exploration<a class="anchor-link" href="#2-Data-Exploration">&#182;</a></h2><h3 id="2.1-Data-Transformation:">2.1 Data Transformation:<a class="anchor-link" href="#2.1-Data-Transformation:">&#182;</a></h3><h3 id="Criticality-of-a-Violation">Criticality of a Violation<a class="anchor-link" href="#Criticality-of-a-Violation">&#182;</a></h3><p>We decided to focus on violations that were deemed 'critical' (see grading system <a href="https://www.ehagroup.com/food-safety/new-york-abc-restaurant-grading/">here</a>), as they related to food temperature, sources, protection, facility design and personal hygiene of staff. These were factors we decided were more likely to impact the health of New York State citizens.</p>
+<h3 id="The-Concept-of-an-Inspection">The Concept of an Inspection<a class="anchor-link" href="#The-Concept-of-an-Inspection">&#182;</a></h3><p>Each row in the primary dataset was a single type of violation, meaning for a single inspection, multiple rows could occur for different violation types. Since we decided not to focus on the violation types, we transformed the data to get a single row per inspection, which summed the total number of violations over all types.</p>
 <p>This gives <strong>406616</strong> inspections.</p>
 <h3 id="2.2-Analysis:">2.2 Analysis:<a class="anchor-link" href="#2.2-Analysis:">&#182;</a></h3><p>The following questions show our exploratory analysis into how frequency of inspections, number of violations, health and socio-economic factors of the community intertwine.</p>
 <h4 id="How-does-number-of-inspections-impact-the-average-violation-count-per-inspection?">How does number of inspections impact the average violation count per inspection?<a class="anchor-link" href="#How-does-number-of-inspections-impact-the-average-violation-count-per-inspection?">&#182;</a></h4><p>We explored how the number of inspections impact the average violation count per inspection with the following scatterplot.</p>
 <p><img src="https://image.ibb.co/iPkKTV/average-violations-per-inspection-over-num-inspections.png" alt=""></p>
-<p>This shows that for more frequently inspected establishments, the average incidence of violations decreases. This is likely in part due to re-inspections to establish previous critical violations are resolved.</p>
-<h4 id="How-does-the-earnings-of-a-county-impact-the-frequency-of-inspections?">How does the earnings of a county impact the frequency of inspections?<a class="anchor-link" href="#How-does-the-earnings-of-a-county-impact-the-frequency-of-inspections?">&#182;</a></h4><p>We decided to investigate if certain counties in New York State received a higher frequency of inspections per restaurant. The following plot shows there is a correlation between the two, with a $R^2$ value of 0.59. This shows there is a potential bias towards inspecting establishments in more affluent neighbourhoods. Since we have seen that establishments with more inspections typically exhibit lower number of critical violations, socio-economic factors can be a factor in the quality of food establishments.</p>
+<p>This shows that for more frequently inspected establishments, the average incidence of violations decreases. This might be attributable to re-inspections to establish whether previous critical violations have been resolved.</p>
+<h4 id="How-does-the-earnings-of-a-county-impact-the-frequency-of-inspections?">How does the earnings of a county impact the frequency of inspections?<a class="anchor-link" href="#How-does-the-earnings-of-a-county-impact-the-frequency-of-inspections?">&#182;</a></h4><p>We decided to investigate if wealthier counties in New York State received a higher frequency of inspections per restaurant. The following plot shows there is a correlation between the two factors, with a $R^2$ value of 0.59. This shows there is a potential bias towards inspecting establishments in more affluent neighbourhoods. Since we have seen that establishments with more inspections typically exhibit lower number of critical violations, we could posit that food establishment health standards can be influenced by socio-economic factors.</p>
 
 </div>
 </div>
@@ -11891,11 +11899,11 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="How-number-and-effectives-of-inspections-changed-over-time?">How number and effectives of inspections changed over time?<a class="anchor-link" href="#How-number-and-effectives-of-inspections-changed-over-time?">&#182;</a></h4><p>With the next three plots, we attempt to explore how number of inspections and their effectiveness have changed over time.</p>
+<h4 id="How-has-the-number-and-effectivness-of-inspections-changed-over-time?">How has the number and effectivness of inspections changed over time?<a class="anchor-link" href="#How-has-the-number-and-effectivness-of-inspections-changed-over-time?">&#182;</a></h4><p>With the next three plots, we attempt to explore how number of inspections and their effectiveness have changed over time.</p>
 <p><img src="https://image.ibb.co/mSjchq/explore-over-time.png" alt=""></p>
-<p>The first graph shows that the number of inspections have generally increased over time. Despite this, the number of average inspections per establishment (the second graph) has remained relatively stable. This shows the health department is currently keeping up with vetting the number of food establishments approximately once a year as they increase.</p>
-<p>The third graph shows the average number of violations over time, which increase over time. Considering the Prevention Agenda commenced in 2013, we might have expected a decline in average violation count between 2013 and 2018. This suggests that the current strategies for improving food and health safety in the state of New York are not working.</p>
-<h4 id="What-areas-typically-have-low/high-numbers-of-average-violation-counts-per-inspection?">What areas typically have low/high numbers of average violation counts per inspection?<a class="anchor-link" href="#What-areas-typically-have-low/high-numbers-of-average-violation-counts-per-inspection?">&#182;</a></h4><p>The following visualisation show the average critical violation count per county over time. We identify particular counties of concern that repeatedly have high average violation counts as Warren and Saratoga. These are areas the State of New York could focus on improving food and health safety.</p>
+<p>The first graph shows that the number of inspections have generally increased over time. Despite this, the number of average inspections per establishment (the second graph) has remained relatively stable. This shows the health department is currently keeping up inspection rates of once a year as the number of food establishments increase.</p>
+<p>The third graph shows the average number of violations increasing over time. Considering the Prevention Agenda commenced in 2013, we might have expected a decline in average violation count between 2013 and 2018. This suggests that the current strategies for improving food and health safety in the state of New York are not working.</p>
+<h4 id="What-areas-typically-have-low/high-numbers-of-average-violation-counts-per-inspection?">What areas typically have low/high numbers of average violation counts per inspection?<a class="anchor-link" href="#What-areas-typically-have-low/high-numbers-of-average-violation-counts-per-inspection?">&#182;</a></h4><p>The following visualisation shows the average critical violation count per county over time. We identify particular counties of concern that repeatedly have high average violation counts as Warren and Saratoga. These are areas the State of New York could focus on to improve food and health safety.</p>
 
 </div>
 </div>
@@ -11936,16 +11944,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="How-does-average-violation-count-impact-on-Salmonella-incidence-rate?">How does average violation count impact on Salmonella incidence rate?<a class="anchor-link" href="#How-does-average-violation-count-impact-on-Salmonella-incidence-rate?">&#182;</a></h4><p>We attempted to find health indicators in the community health data set that might identify areas of poor food health and safety of eating establishments. We found a health indicator for 'Salmonella incidence rate per 100,000 people' between 2012 and 2014. We also found an indicator for gastroenteritis, a subset of which called bacterial gastroenteritis is commonly caused by "food poisoning". Unfortunately, this data was for children under the age of 4, an unlikely target audience of food establishments.</p>
+<h4 id="How-does-average-violation-count-correlate-to-the-incidence-rate-of-Salmonella?">How does average violation count correlate to the incidence rate of Salmonella?<a class="anchor-link" href="#How-does-average-violation-count-correlate-to-the-incidence-rate-of-Salmonella?">&#182;</a></h4><p>We attempted to find health indicators in the community health data set that might identify areas of poor food health and safety of eating establishments. We found a health indicator for 'Salmonella incidence rate per 100,000 people' between 2012 and 2014. We also found an indicator for gastroenteritis, a subset of which called bacterial gastroenteritis is commonly caused by "food poisoning". Unfortunately, this data was for children under the age of 4, an unlikely target audience of food establishments.</p>
 <p>The following visualisation shows the relative rates of Salmonella incidence across the counties of the State of New York.</p>
 
 </div>
@@ -11987,7 +11986,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The following plot shows the incidence rate of Salmonella incidence rate per 100,000 people and the average violation count per county between 2012 and 2014. It has no significant correlation with an $R^2$ value of 0.038. The reason for this could explained in a variety of ways including citizens giving themselves Salmonella at a higher rate than food establishments. We currently do not have the data to separate these two different events.</p>
+<p>The following plot shows the incidence rate of Salmonella per 100,000 people and the average violation count per county between 2012 and 2014. It has no significant correlation with an $R^2$ value of 0.038. The reason for this could be  explained in a variety of ways including citizens giving themselves Salmonella at a higher rate than food establishments. We currently do not have the data to separate these two different events.</p>
 
 </div>
 </div>
@@ -12053,8 +12052,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.1-Modeling">3.1 Modeling<a class="anchor-link" href="#3.1-Modeling">&#182;</a></h3><p>We are interested in finding the relationship of variables that could negatively influence outcome of the latest inspection.</p>
-<p>Specifically, we are interested in the outcome of the latest inspection solely as binary value: 'any critical violations' and 'no critical violations'. We want to test the influence of prior average violations per inspection (i.e. level of previous consideration of food safety guidelines) and the time between just the prior and the last inspection (which could cause negligence over time).</p>
+<h3 id="3.1-Modeling">3.1 Modeling<a class="anchor-link" href="#3.1-Modeling">&#182;</a></h3><p>We are interested in finding the relationship between variables that could negatively influence the outcome of the latest inspection.</p>
+<p>Specifically, we are interested in the outcome of the latest inspection solely as binary value: 'any critical violations' and 'no critical violations'. We want to test the influence of prior average violations per inspection (i.e. level of previous consideration of food safety guidelines) and the time between the last two inspections (which could be related because establishments can get negligent over time).</p>
 <p>Features:</p>
 <ul>
 <li>(num: #) avg_violations</li>
@@ -12065,9 +12064,9 @@ div#notebook {
 <li>(bin) any_violations_in_latest_inspection</li>
 </ul>
 <p>The binary value 'any/no critical violations' will be modeled as a Bernoulli distribution. As such, we find the effects of our features by performing logistical regression.</p>
-<p>Because we base our model partly on histroric averages, we limit out training set to only restaurants, that have $N > threshold$ inspections, as considering lower numbers of inspections do not give representative averages. Below, the reduction in dataset size depending on $threshold$</p>
+<p>Because we base our model partly on histroric averages, we limit out training set to only restaurants that have $N > threshold$ inspections, as considering lower numbers of inspections do not give representative averages. The figure below shows the reduction in dataset size depending on $threshold$</p>
 <p><img src="https://image.ibb.co/b1iZTV/restaurant-inspection-frequency.png" alt="alt text"></p>
-<p>Through visualtion and exploration of deviations from the averages we calculated, we chose $threshold=5$ to strike a balance between representative data and size of the reduced dataset.</p>
+<p>Through visualtion and exploration of deviations from the averages we calculated, we chose $threshold=5$ to strike a balance between representative data and the size of the reduced dataset.</p>
 
 </div>
 </div>
@@ -12135,7 +12134,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="3.3.3-Data-Leak">3.3.3 Data Leak<a class="anchor-link" href="#3.3.3-Data-Leak">&#182;</a></h4><p>Data leak occurs when information from the training set leaks into the validation set. Although the model will perform well on the validation set, when deployed into the real-world, it is likely to perform poorly. To this end, we deal with this problem by performing data preprocessing within the cross-validation folds. Within each fold, a new sklearn RobustScaler object is created, and the training data of is fitted and transformed using this scaler. This is followed by a transformation of the test data in that fold. The result of this is that the scaler is fitted to only the training data of that fold, and is used to transform the test data of that fold.</p>
+<h4 id="3.3.3-Data-Leak">3.3.3 Data Leak<a class="anchor-link" href="#3.3.3-Data-Leak">&#182;</a></h4><p>Data leak occurs when information from the training set leaks into the validation set. Although the model will perform well on the validation set, when deployed into the real-world, it is likely to perform poorly. To this end, we deal with this problem by performing data preprocessing within the cross-validation folds. Within each fold, a new sklearn RobustScaler object is created, and the training data is fitted and transformed using this scaler. This is followed by a transformation of the test data in that fold. The result of this is that the scaler is fitted to only the training data of that fold, and is used to transform the test data of that fold.</p>
 
 </div>
 </div>
@@ -12171,12 +12170,9 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="4-Conclusions,-insights-and-future-research">4 Conclusions, insights and future research<a class="anchor-link" href="#4-Conclusions,-insights-and-future-research">&#182;</a></h2><p>Inspections in the State of New York serve as a great way to not only evaluate the quality of food estblashiment health and safety practices, but also to improve them. We find that as number of inspections per restaurant increases, the lower the average critical violations per inspection is. However, inpsections are bised towards more affluent areas.</p>
+<h2 id="4-Conclusions,-Insights-and-Future-Research">4 Conclusions, Insights and Future Research<a class="anchor-link" href="#4-Conclusions,-Insights-and-Future-Research">&#182;</a></h2><p>Inspections in the State of New York serve as a great way to not only evaluate the quality of food estblashiment health and safety practices, but also to improve them. We find that as number of inspections per restaurant increases, the lower the average number of critical violations per inspection is. However, inpsections are bised towards more affluent areas.</p>
 <p>Two actions the State of New York could undertake from the results of this investigation are to inspect in areas of low household earnings as frequently as they do in more affluent areas and to perform a more thorough investigation into the two states identified as areas of concern.</p>
-<p>The model we devised was able to successfully correlate two engineered features.
-We can see a correlation between the number of critical violations in previous inspections and a critical violation being found in the latest one.
-We also can also postulate that frequent inspections are important, as failure to frequently inspect quickly increases the odds of a critical violations.
-In the future, we would like to take into account more parameters in the dataset (i.e. approaching permit expiration dates) to try and schedule inspections in a proactive manner.</p>
+<p>The model we devised was able to successfully correlate two engineered features. We can see a correlation between the number of critical violations in previous inspections and a critical violation being found in the latest one. We can also postulate that frequent inspections are important, as failure to frequently inspect quickly increases the odds of a critical violation. In the future, we would like to take into account more parameters in the dataset (i.e. approaching permit expiration dates) to try and schedule inspections in a proactive manner.</p>
 
 </div>
 </div>
