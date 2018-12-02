@@ -12082,7 +12082,7 @@ The two files are the same
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="2.1-Simulation-to-explore-effect-for-limiting-adaptive-model-to-N-samples">2.1 Simulation to explore effect for limiting adaptive model to N samples<a class="anchor-link" href="#2.1-Simulation-to-explore-effect-for-limiting-adaptive-model-to-N-samples">&#182;</a></h5><p>The following simulation is conducted for a initial bias value of 0.1. The iteration for which 'model_limit' is 0 corresponds to the fully adaptive model, NOT 0 limit. The simulation is successful if the output doesn't print 'The files are different'.</p>
+<h5 id="2.1-Simulation-to-explore-the-effect-of-limiting-adaptive-model-to-N-samples">2.1 Simulation to explore the effect of limiting adaptive model to N samples<a class="anchor-link" href="#2.1-Simulation-to-explore-the-effect-of-limiting-adaptive-model-to-N-samples">&#182;</a></h5><p>The following simulation is conducted for a initial bias value of 0.1. The iterations are conducted over the values of 'N' in 'model_limit'. N = 0 corresponds to the fully adaptive model, NOT 0 limit. The simulation is successful if the output doesn't print 'The files are different'.</p>
 
 </div>
 </div>
@@ -12247,7 +12247,7 @@ The two files are the same
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The following simulation is conducted for a initial bias value of 0.01. The iteration for which 'model_limit' is 0 corresponds to the fully adaptive model, NOT 0 limit. The simulation is successful if the output doesn't print 'The files are different'.</p>
+<p>The following simulation is conducted for a initial bias value of 0.1. The iterations are conducted over the values of 'N' in 'model_limit'. N = 0 corresponds to the fully adaptive model, NOT 0 limit. The simulation is successful if the output doesn't print 'The files are different'.</p>
 
 </div>
 </div>
@@ -12525,7 +12525,7 @@ The two files are the same
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="2.3-Simulation-exploring-the-relationship-between-intial-bias-value-and-compression-rate.">2.3 Simulation exploring the relationship between intial bias value and compression rate.<a class="anchor-link" href="#2.3-Simulation-exploring-the-relationship-between-intial-bias-value-and-compression-rate.">&#182;</a></h5><p>Simulation iterates over 10 bias values and the output shows the relationship between bias values, compression rates, and time. Simulation is successful if 'The two files are the same' prints ten times.</p>
+<h5 id="2.3-Simulation-exploring-the-relationship-between-intial-bias-value-and-compression-rate.">2.3 Simulation exploring the relationship between intial bias value and compression rate.<a class="anchor-link" href="#2.3-Simulation-exploring-the-relationship-between-intial-bias-value-and-compression-rate.">&#182;</a></h5><p>Simulation iterates over 10 'bias' values and the output shows the relationship between bias values, compression rates, and time. Simulation is successful if 'The two files are the same' prints ten times.</p>
 
 </div>
 </div>
@@ -12984,10 +12984,10 @@ The two files are the same
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Effective Compression rate: {(8.0*Nout+len(bytes(p2)))/Nin} bits/byte&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Effective compression rate: {(8.0*Nout+len(bytes(p2)))/Nin} bits/byte&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13002,7 +13002,7 @@ The two files are the same
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Effective Compression rate: 3.6720424654292185 bits/byte
+<pre>Effective compression rate: 3.6720424654292185 bits/byte
 </pre>
 </div>
 </div>
