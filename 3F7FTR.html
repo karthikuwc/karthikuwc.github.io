@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>3F7 FTR</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>3F7FTR</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11834,7 +11834,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;hamlet.txt&#39;</span>
@@ -12818,7 +12818,7 @@ The two files are the same
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;hamlet.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
@@ -12847,7 +12847,7 @@ The two files are the same
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;fcondarithmetic&#39;</span>
@@ -12883,7 +12883,7 @@ The two files are the same
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Time taken: 7.164635181427002
+<pre>Time taken: 10.611285924911499
 Length of original file: 207039 bytes
 Length of compressed file: 86776 bytes
 Compression rate: 3.3530301054390717 bits/byte
@@ -12901,13 +12901,14 @@ The two files are the same
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="3.2-Conditional-entropy-of-test-file">3.2 Conditional entropy of test file<a class="anchor-link" href="#3.2-Conditional-entropy-of-test-file">&#182;</a></h5>
+<h5 id="3.2-Conditional-entropy-of-test-file-for-context-length-1">3.2 Conditional entropy of test file for context length 1<a class="anchor-link" href="#3.2-Conditional-entropy-of-test-file-for-context-length-1">&#182;</a></h5><p>$H(X_k|X_{k-1})$</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">hamlet</span><span class="p">)</span> <span class="c1">#Joint probability distribution</span>
@@ -12955,7 +12956,7 @@ The two files are the same
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Size of conditional probabilty distribution: {len(bytes(p2))} bytes&#39;</span><span class="p">)</span>
@@ -12984,10 +12985,10 @@ The two files are the same
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Effective compression rate: {(8.0*Nout+len(bytes(p2)))/Nin} bits/byte&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Effective compression rate: {8.0*(Nout+len(bytes(p2)))/Nin} bits/byte&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13002,11 +13003,295 @@ The two files are the same
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Effective compression rate: 3.6720424654292185 bits/byte
+<pre>Effective compression rate: 5.905128985360246 bits/byte
 </pre>
 </div>
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="3.4-Adaptive-Contextual-Arithmetic-Coding">3.4 Adaptive Contextual Arithmetic Coding<a class="anchor-link" href="#3.4-Adaptive-Contextual-Arithmetic-Coding">&#182;</a></h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The following simulation uses a context length of 1.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;gadconarithmetic&#39;</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">camzip</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">camunzip</span><span class="p">(</span><span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;.cz&#39;</span> <span class="o">+</span> <span class="n">method</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">finish</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Time taken: {finish-start}&#39;</span><span class="p">)</span>
+
+
+<span class="n">Nin</span> <span class="o">=</span> <span class="n">stat</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">st_size</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Length of original file: </span><span class="si">{Nin}</span><span class="s1"> bytes&#39;</span><span class="p">)</span>
+<span class="n">Nout</span> <span class="o">=</span> <span class="n">stat</span><span class="p">(</span><span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;.cz&#39;</span> <span class="o">+</span> <span class="n">method</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">st_size</span>
+<span class="n">sha</span> <span class="o">=</span> <span class="mf">8.0</span><span class="o">*</span><span class="n">Nout</span><span class="o">/</span><span class="n">Nin</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Length of compressed file: </span><span class="si">{Nout}</span><span class="s1"> bytes&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Compression rate: {8.0*Nout/Nin} bits/byte&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="nb">cmp</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="n">filename</span><span class="o">+</span><span class="s1">&#39;.cuz&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The two files are the same&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The files are different&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Time taken: 49.27709197998047
+Length of original file: 207039 bytes
+Length of compressed file: 88096 bytes
+Compression rate: 3.4040349885770316 bits/byte
+The two files are the same
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The following simulation uses a context length of 2.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;jadconarithmetic&#39;</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">camzip</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">camunzip</span><span class="p">(</span><span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;.cz&#39;</span> <span class="o">+</span> <span class="n">method</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">finish</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Time taken: {finish-start}&#39;</span><span class="p">)</span>
+
+
+<span class="n">Nin</span> <span class="o">=</span> <span class="n">stat</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">st_size</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Length of original file: </span><span class="si">{Nin}</span><span class="s1"> bytes&#39;</span><span class="p">)</span>
+<span class="n">Nout</span> <span class="o">=</span> <span class="n">stat</span><span class="p">(</span><span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;.cz&#39;</span> <span class="o">+</span> <span class="n">method</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">st_size</span>
+<span class="n">sha</span> <span class="o">=</span> <span class="mf">8.0</span><span class="o">*</span><span class="n">Nout</span><span class="o">/</span><span class="n">Nin</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Length of compressed file: </span><span class="si">{Nout}</span><span class="s1"> bytes&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Compression rate: {8.0*Nout/Nin} bits/byte&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="nb">cmp</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="n">filename</span><span class="o">+</span><span class="s1">&#39;.cuz&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The two files are the same&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The files are different&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Time taken: 67.92650389671326
+Length of original file: 207039 bytes
+Length of compressed file: 69443 bytes
+Compression rate: 2.683281893749487 bits/byte
+The two files are the same
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="3.5-Conditional-entropy-of-test-file-for-context-length-2">3.5 Conditional entropy of test file for context length 2<a class="anchor-link" href="#3.5-Conditional-entropy-of-test-file-for-context-length-2">&#182;</a></h5><p>$H(X_k|X_{k-1},X_{k-2})$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;hamlet.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">hamlet</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">f2</span> <span class="o">=</span> <span class="p">[[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">128</span><span class="p">)]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">129</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">129</span><span class="p">)]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hamlet</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">f2</span><span class="p">[</span><span class="mi">128</span><span class="p">][</span><span class="mi">128</span><span class="p">][</span><span class="nb">ord</span><span class="p">(</span><span class="n">hamlet</span><span class="p">[</span><span class="n">i</span><span class="p">])]</span> <span class="o">+=</span><span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">f2</span><span class="p">[</span><span class="mi">128</span><span class="p">][</span><span class="nb">ord</span><span class="p">(</span><span class="n">hamlet</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])][</span><span class="nb">ord</span><span class="p">(</span><span class="n">hamlet</span><span class="p">[</span><span class="n">i</span><span class="p">])]</span> <span class="o">+=</span><span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">f2</span><span class="p">[</span><span class="nb">ord</span><span class="p">(</span><span class="n">hamlet</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">])][</span><span class="nb">ord</span><span class="p">(</span><span class="n">hamlet</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])][</span><span class="nb">ord</span><span class="p">(</span><span class="n">hamlet</span><span class="p">[</span><span class="n">i</span><span class="p">])]</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+<span class="n">p2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p2</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p2</span><span class="p">[</span><span class="n">l</span><span class="p">])):</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">p2</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">m</span><span class="p">])</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">p2</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">p2</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">m</span><span class="p">]</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">p2</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">m</span><span class="p">])</span>
+        
+<span class="n">pj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">hamlet</span><span class="p">)</span> <span class="c1">#Joint probability distribution</span>
+
+<span class="k">def</span> <span class="nf">cH</span><span class="p">(</span><span class="n">p2</span><span class="p">,</span><span class="n">pj</span><span class="p">):</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pj</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pj</span><span class="p">[</span><span class="n">i</span><span class="p">])):</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pj</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])):</span>
+                <span class="k">if</span> <span class="n">pj</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">h</span> <span class="o">+=</span> <span class="n">pj</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">log2</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">p2</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">h</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Conditional Entropy: {cH(p2,pj)}&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Conditional Entropy: 2.357435704004353
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="3.6-Effect-of-larger-file-size-on-adaptive-coding">3.6 Effect of larger file size on adaptive coding<a class="anchor-link" href="#3.6-Effect-of-larger-file-size-on-adaptive-coding">&#182;</a></h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The following simulation uses a context length of 2, for a test file which is the concatenation of two copies of the original test file.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;jadconarithmetic&#39;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;hamlet2.txt&#39;</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">camzip</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">camunzip</span><span class="p">(</span><span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;.cz&#39;</span> <span class="o">+</span> <span class="n">method</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">finish</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Time taken: {finish-start}&#39;</span><span class="p">)</span>
+
+
+<span class="n">Nin</span> <span class="o">=</span> <span class="n">stat</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">st_size</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Length of original file: </span><span class="si">{Nin}</span><span class="s1"> bytes&#39;</span><span class="p">)</span>
+<span class="n">Nout</span> <span class="o">=</span> <span class="n">stat</span><span class="p">(</span><span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;.cz&#39;</span> <span class="o">+</span> <span class="n">method</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">st_size</span>
+<span class="n">sha</span> <span class="o">=</span> <span class="mf">8.0</span><span class="o">*</span><span class="n">Nout</span><span class="o">/</span><span class="n">Nin</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Length of compressed file: </span><span class="si">{Nout}</span><span class="s1"> bytes&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Compression rate: {8.0*Nout/Nin} bits/byte&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="nb">cmp</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="n">filename</span><span class="o">+</span><span class="s1">&#39;.cuz&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The two files are the same&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The files are different&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Time taken: 131.99996089935303
+Length of original file: 414079 bytes
+Length of compressed file: 132167 bytes
+Compression rate: 2.553464435530418 bits/byte
+The two files are the same
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+</div>
 </div>
 </div>
 
